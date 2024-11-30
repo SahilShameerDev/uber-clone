@@ -45,8 +45,8 @@ userSchema.methods.generateAuthToken = function(){
 
 
 // Compare the entered password with the user password
-userSchema.comparePassword = async function(enteredPassword, userPassword){
-    return await bcrypt.compare(enteredPassword, userPassword);
+userSchema.methods.comparePassword = async function(enteredPassword, userPassword){
+    return await bcrypt.compare(enteredPassword, this.password);
 }
 
 // Hash the password before saving the user

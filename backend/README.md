@@ -1,4 +1,3 @@
-
 # Backend API Documentation
 
 ## Register a New User
@@ -22,10 +21,36 @@ The request body should be a JSON object containing:
 - `password`: String (required, minimum 6 characters)
 
 ## Example Response:
-- `user`: Object (required)
-    - `fullname`: String (required, minimum 3 characters)
-        - `firstname`: String (required, minimum 3 characters)
-        - `lastname`: String (required, minimum 3 characters)
-    - `email`: String (required, valid email format)
-    - `password`: String (required, minimum 6 characters)
+- `user`: Object 
+    - `fullname`: Object 
+        - `firstname`: String 
+        - `lastname`: String 
+    - `email`: String
+    - `password`: String
 - `token`: String (JWT Token)
+
+## User Login
+
+### Endpoint
+
+**POST** `/users/login`
+
+### Description
+
+This endpoint authenticates a user and returns a JWT token.
+
+### Request Body
+
+The request body should be a JSON object containing:
+
+- `email`: String (required, valid email format)
+- `password`: String (required, minimum 6 characters)
+
+### Example Response:
+- `token`: String (JWT Token)
+- `user`: Object
+    - `fullname`: Object
+        - `firstname`: String
+        - `lastname`: String
+    - `email`: String
+    - `password`: String
